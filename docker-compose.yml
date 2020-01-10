@@ -17,7 +17,7 @@ services:
     environment:
       - HUB_HOST=hub
   searchmodule:
-      image: dragandragan04/docker-selenium-testng
+      image: dragandragan04/selenium-docker
       depends_on:
         - chrome
       environment:
@@ -26,18 +26,8 @@ services:
         - MODULE=search-module.xml
       volumes:
         - ./search-result-chrome:/usr/share/udemy/test-output
-  searchmodule:
-      image: dragandragan04/docker-selenium-testng
-      depends_on:
-        - firefox
-      environment:
-        - BROWSER=firefox
-        - HUB_HOST=hub
-        - MODULE=search-module.xml
-      volumes:
-        - ./search-result-firefox:/usr/share/udemy/test-output
   book-flight-module:
-      image: dragandragan04/docker-selenium-testng
+      image: dragandragan04/selenium-docker
       depends_on:
         - chrome
         - firefox
@@ -46,14 +36,4 @@ services:
         - HUB_HOST=hub
         - MODULE=book-flight-module.xml
       volumes:
-        - ./book-result-chrome:/usr/share/udemy/test-output
-  book-flight-module:
-      image: dragandragan04/docker-selenium-testng
-      depends_on:
-        - chrome
-      environment:
-        - BROWSER=firefox
-        - HUB_HOST=hub
-        - MODULE=book-flight-module.xml
-      volumes:
-        - ./book-result-firefox:/usr/share/udemy/test-output      
+        - ./book-result-chrome:/usr/share/udemy/test-output  
