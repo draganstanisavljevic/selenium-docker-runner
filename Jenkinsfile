@@ -1,7 +1,7 @@
 pipeline{
 	agent any
 	stages{
-		stage("Start grid"){
+		stage("Download latest image"){
 			steps{
 				sh "docker pull dragandragan04/selenium-docker"
 			}
