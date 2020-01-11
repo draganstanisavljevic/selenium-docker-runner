@@ -3,6 +3,11 @@ pipeline{
 	stages{
 		stage("Start grid"){
 			steps{
+				sh "docker pull dragandragan04/selenium-docker"
+			}
+		}
+		stage("Start grid"){
+			steps{
 				sh "docker-compose up -d hub chrome firefox"
 			}
 		}
